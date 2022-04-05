@@ -1,0 +1,170 @@
+<!-- Apis  -->
+<!-- Principal  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>🌞 Weather API ⚡</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet"  href="../css/sty.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body> 
+  
+    <div class="topnav">
+      <div class="topnav-centered">
+       <center>
+          <a href="Index.html" class="active">INICIO</a>
+      </div>
+          <a href=""><img src="imagenes/logo.png" width="60" height="60"></a>
+          <a href="https://www.weatherapi.com/">Bienvenido a Weather API</a>
+      <div class="topnav-right">
+        <img src="imagenes/2.png" class="rounded-circle" width="60" height="60">
+        <a href="" class=""></a>
+        <br>
+          <a href="Index.html" class="active">Cerrar Sesion</a>
+      </div>
+    </center>
+    </div>
+
+
+<div class="container-fluid p-5 bg-warning text-black text-center">
+    
+    
+     <!-- 
+    <div class="container p-5 my-5 bg-dark text-white">
+    <h2>Como esta el Clima De</h2>
+    <p>Start to type for a specific category inside the search bar to "filter" the search options.</p>
+
+    <div class="row">
+      <div class="left" style="background-color:#bbb;">
+        <h2>Ciudades</h2>
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+        <ul id="myMenu">
+          <li><a href="">San Luis Rio Colorado</a></li>
+          <li><a href="#">Ciudad De Mexico</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">PHP</a></li>
+          <li><a href="#">Python</a></li>
+          <li><a href="#">jQuery</a></li>
+          <li><a href="#">SQL</a></li>
+          <li><a href="#">Bootstrap</a></li>
+          <li><a href="#">Node.js</a></li>
+        </ul>
+      </div>
+      
+      <div class="right" style="background-color:#003EB0;">
+        <h2>Page Content</h2>
+        <p>Start to type for a specific category inside the search bar to "filter" the search options.</p>
+        <p>Some text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..</p>
+        <p>Some other text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..</p>
+        <p>Some text..</p>
+      </div>
+    </div>
+    </div>
+
+-->
+    <div class="container p-5 my-5 bg-dark text-white"> 
+        <div class="row"> 
+              <div class="col-sm-4">                   
+                  <img src="imagenes/01.png" width="300" height="150">
+              </div>
+              <div class="col-sm-4">                                    
+                  <img src="imagenes/02.png" width="300" height="150">
+              </div>
+              <div class="col-sm-4"> 
+                  <img src="imagenes/03.png" width="300" height="150">
+              </div>                    
+        </div>
+    </div>
+
+    <div class="container">
+    <form action="" method="GET">
+              <h3><label for="contry">SABER EL CLIMA DE CUALQUIER PARTE DEL MUNDO</label></h3>
+              <h2>INTRODUCE EL LUGAR QUE DESEA SABER DE:</h2>
+              <h1><input  id="contry" name="contry" type="text" ></h1>
+              <button class="btn btn-info" id="submit" type="button">Saber ahora</button>
+              
+                <div class="output">
+                  <br>
+                   <h4>
+                    <h1>La Temperaura es:</h1>
+                    <div class="alert alert-primary" role="alert" id='grados'>
+                      
+                    </div> 
+                  <br>
+                  <h1>La Temperaura Maxima es:</h1>
+                      <div class="alert alert-primary" role="alert" id="tempumax">
+                        
+                      </div>
+                  </h4>
+                </div>
+        </form>
+    </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+        $("#submit").click(function(){
+
+             var contry = document.getElementById("contry").value;
+
+              $.get("https://api.openweathermap.org/data/2.5/weather?q="+contry+"&appid=c99e56f1a63c930c927557d8733c8493",function(data, status){
+                  console.log(data);
+
+                  document.getElementById('grados').innerHTML = data.main.temp
+                  document.getElementById('tempumax').innerHTML = data.main.temp_max
+                  
+              });
+
+          });
+        </script>
+
+    </div>
+    </div>
+            
+    <div class="container p-5 my-5 bg-dark text-white"> 
+        <div class="row"> 
+              <div class="col-sm-4">                   
+                  <img src="imagenes/01.png" width="300" height="150">
+              </div>
+              <div class="col-sm-4">                                    
+                  <img src="imagenes/02.png" width="300" height="150">
+              </div>
+              <div class="col-sm-4"> 
+                  <img src="imagenes/03.png" width="300" height="150">
+              </div>                    
+        </div>
+    </div>
+
+
+    <!-- Final -->
+      <div class="container p-5 my-5 bg-white text-white"> 
+      </div>
+
+</div>
+
+<!-- Stilos para latabla de busqueda -->
+<script>
+function myFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</head>
+<body>
